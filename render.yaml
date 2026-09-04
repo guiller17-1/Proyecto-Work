@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: dashboard-truck-visits
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: CSV_URL
+        sync: false
